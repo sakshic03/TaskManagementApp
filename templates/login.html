@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login — TaskFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-body">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <main class="auth-card">
+    <a class="brand auth-brand" href="/"><span class="brand-icon">✦</span><span>task<span class="brand-light">flow</span></span></a>
+    <p class="eyebrow">WELCOME BACK</p>
+    <h1>Good to see <span class="gradient-text">you.</span></h1>
+    <p class="auth-sub">Sign in and get back into your flow.</p>
+
+    {% if error %}<div class="auth-error">{{ error }}</div>{% endif %}
+
+    <form method="POST" class="auth-form">
+      <label class="field-label" for="email">Email address</label>
+      <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <label class="field-label" for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="At least 8 characters" autocomplete="current-password" required>
+      <button class="primary-btn auth-submit" type="submit">Sign in <span>↗</span></button>
+    </form>
+    <p class="auth-switch">New to TaskFlow? <a href="{{ url_for('register') }}">Create an account</a></p>
+    <p class="sidebar-foot auth-foot">SMALL STEPS. BIG PROGRESS. ✨</p>
+  </main>
+</body>
+</html>

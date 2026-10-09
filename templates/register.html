@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account — TaskFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-body">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <main class="auth-card">
+    <a class="brand auth-brand" href="/"><span class="brand-icon">✦</span><span>task<span class="brand-light">flow</span></span></a>
+    <p class="eyebrow">YOUR NEXT CHAPTER</p>
+    <h1>Build your <span class="gradient-text">momentum.</span></h1>
+    <p class="auth-sub">Create an account and make room for progress.</p>
+
+    {% if error %}<div class="auth-error">{{ error }}</div>{% endif %}
+
+    <form method="POST" class="auth-form">
+      <label class="field-label" for="username">Your name</label>
+      <input id="username" type="text" name="username" maxlength="60" placeholder="What should we call you?" autocomplete="name" required>
+      <label class="field-label" for="email">Email address</label>
+      <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <label class="field-label" for="password">Create password</label>
+      <input id="password" type="password" name="password" minlength="8" placeholder="At least 8 characters" autocomplete="new-password" required>
+      <button class="primary-btn auth-submit" type="submit">Create account <span>↗</span></button>
+    </form>
+    <p class="auth-switch">Already have an account? <a href="{{ url_for('login') }}">Sign in</a></p>
+    <p class="sidebar-foot auth-foot">YOUR SPACE. YOUR PACE. ✨</p>
+  </main>
+</body>
+</html>
